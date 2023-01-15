@@ -31,21 +31,25 @@ export function HomepageHeader({
               your website stops responding
             </h4>
 
-            <div className="margin-vert--lg">
+            <div style={{ marginTop: "5rem" }}>
               <label style={{ fontWeight: "bold" }}>
                 1. On your website on Cloudflare Pages, Install the plugin{" "}
-                <a href="https://developers.cloudflare.com/pages/platform/functions/plugins/community-plugins/">
+                <a
+                  style={{ marginRight: 4 }}
+                  href="https://developers.cloudflare.com/pages/platform/functions/plugins/community-plugins/"
+                >
                   [Cloudflare docs]
                 </a>
+                <a href="https://www.npmjs.com/package/@flaregun-net/edgeflare-for-pages">
+                  [NPM package]
+                </a>
               </label>
-              <SyntaxHighlighter
-                language="shell"
-                customStyle={{
-                  background: "rgba(20,28,34,0.5)",
-                  border: "1px solid #4a4658",
-                }}
-                value="> npm install @flaregun-net/edgeflare-for-pages"
-              />
+              <div className="code-wrapper">
+                <SyntaxHighlighter
+                  language="shell"
+                  value="> npm install @flaregun-net/edgeflare-for-pages"
+                />
+              </div>
             </div>
             <div>
               <label style={{ fontWeight: "bold" }}>
@@ -55,30 +59,28 @@ export function HomepageHeader({
                   [Cloudflare docs]
                 </a>
               </label>
-              <SyntaxHighlighter
-                showLineNumbers={true}
-                customStyle={{
-                  background: "rgba(20,28,34,0.5)",
-                  border: "1px solid #4a4658",
-                }}
-                wrapLongLines={true}
-                value={scaffold}
-                lineProps={(i: number) => {
-                  const found = routes
-                    .flat()
-                    .find((route) => route.metadata[0] === i)
+              <div className="code-wrapper">
+                <SyntaxHighlighter
+                  showLineNumbers={true}
+                  wrapLongLines={true}
+                  value={scaffold}
+                  lineProps={(i: number) => {
+                    const found = routes
+                      .flat()
+                      .find((route) => route.metadata[0] === i)
 
-                  return {
-                    style: found && {
-                      color: "white",
-                      cursor: "pointer",
-                      marginBottom: 2,
-                      backgroundColor: found.metadata[2],
-                    },
-                    onClick: () => onCodeLineClick(i),
-                  }
-                }}
-              />
+                    return {
+                      style: found && {
+                        color: "white",
+                        cursor: "pointer",
+                        marginBottom: 2,
+                        backgroundColor: found.metadata[2],
+                      },
+                      onClick: () => onCodeLineClick(i),
+                    }
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>

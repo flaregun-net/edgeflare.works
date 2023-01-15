@@ -79,7 +79,6 @@ export const useEdgeflareConfiguration = () => {
           metadata: routeMetadata[0],
           snippet: (
             <SyntaxHighlighter
-              customStyle={{ backgroundColor: "rgba(20,28,34,0.5)" }}
               value={`const config = ${JSON.stringify(
                 maintenanceMode(hostname),
                 null,
@@ -98,7 +97,6 @@ export const useEdgeflareConfiguration = () => {
           metadata: routeMetadata[1],
           snippet: (
             <SyntaxHighlighter
-              customStyle={{ backgroundColor: "rgba(20,28,34,0.5)" }}
               value={`const config = ${JSON.stringify(neverGoDown(), null, 2)}`}
             />
           ),
@@ -106,7 +104,7 @@ export const useEdgeflareConfiguration = () => {
       ],
       [
         {
-          title: "BYOT (bring your own templates)",
+          title: "Bring your own page or use one of our templates",
           url: hostname,
           docsUrl:
             "https://flaregun.net/docs/latest/proxyflare/plugin/configure/proxying-services",
@@ -115,7 +113,6 @@ export const useEdgeflareConfiguration = () => {
           metadata: routeMetadata[2],
           snippet: (
             <SyntaxHighlighter
-              customStyle={{ backgroundColor: "rgba(20,28,34,0.5)" }}
               value={`const config = ${JSON.stringify(
                 bringYourOwnTemplate(hostname),
                 null,
@@ -125,16 +122,15 @@ export const useEdgeflareConfiguration = () => {
           ),
         },
         {
-          title: "Empower your team",
+          title: "Empower your team to work effectively",
           url: hostname,
           docsUrl:
             "https://flaregun.net/docs/latest/proxyflare/plugin/configure/proxying-websites",
           description:
-            "Developers need access to a website to fix it. Bypass maintenance mode with password and IP address-based allowlists to get back online fast.",
+            "Developers need access to a website to fix it. Configure a bypass code to disable maintenance mode with password and IP address-based allowlists to help your developers get you back online fast.",
           metadata: routeMetadata[3],
           snippet: (
             <SyntaxHighlighter
-              customStyle={{ backgroundColor: "rgba(20,28,34,0.5)" }}
               value={`const config = ${JSON.stringify(bypassCode(), null, 2)}`}
             />
           ),
