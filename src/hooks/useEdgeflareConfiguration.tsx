@@ -71,7 +71,7 @@ export const useEdgeflareConfiguration = () => {
       [
         {
           title: "Maintenance mode where you need it",
-          url: hostname,
+          url: `https://${hostname}/blog`,
           docsUrl:
             "https://flaregun.net/docs/latest/proxyflare/plugin/configure/proxying-services",
           description:
@@ -89,7 +89,7 @@ export const useEdgeflareConfiguration = () => {
         },
         {
           title: "Never go offline again",
-          url: hostname,
+          url: `https://${hostname}/broken`,
           docsUrl:
             "https://flaregun.net/docs/latest/proxyflare/plugin/configure/proxying-websites",
           description:
@@ -105,7 +105,7 @@ export const useEdgeflareConfiguration = () => {
       [
         {
           title: "Bring your own page or use one of our templates",
-          url: hostname,
+          url: `https://${hostname}/maintenance-with-remote-template`,
           docsUrl:
             "https://flaregun.net/docs/latest/proxyflare/plugin/configure/proxying-services",
           description:
@@ -123,7 +123,9 @@ export const useEdgeflareConfiguration = () => {
         },
         {
           title: "Empower your team to work effectively",
-          url: hostname,
+          url: `https://${hostname}/blog?EdgeflareBypassCode=${
+            bypassCode().maintenanceMode.enablement.bypassCode
+          }`,
           docsUrl:
             "https://flaregun.net/docs/latest/proxyflare/plugin/configure/proxying-websites",
           description:
