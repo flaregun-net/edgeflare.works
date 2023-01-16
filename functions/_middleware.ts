@@ -1,4 +1,3 @@
-import { demoConfig } from "@flaregun-net/edgeflare-core/build/devConfig"
 import edgeflare from "@flaregun-net/edgeflare-for-pages"
 
 // This function runs on every request to edgeflare.site and edgeflare.xyz
@@ -7,7 +6,34 @@ import edgeflare from "@flaregun-net/edgeflare-for-pages"
 export const onRequest: PagesFunction<{ HOSTNAME: string }>[] = [
   (context) =>
     context.env.HOSTNAME === "edgeflare.site"
-      ? edgeflare({ config: demoConfig(context.env.HOSTNAME) })(context)
+      ? edgeflare({
+          config: {
+            global: { debug: true },
+            maintenanceMode: {
+              enablement: {
+                enabled: true,
+                routes: [`${context.env.HOSTNAME}/some-page`],
+                bypassCode: "charlie",
+              },
+              pageOptions: {
+                website: {
+                  url: "https://maintenance-page-bjx.pages.dev",
+                  mode: "spa" as const,
+                  resources: [
+                    `${context.env.HOSTNAME}/assets/*`,
+                    `${context.env.HOSTNAME}/img/*`,
+                    `${context.env.HOSTNAME}/manifest.json`,
+                  ],
+                },
+              },
+            },
+            neverGoDownMode: {
+              enablement: {
+                enabled: true,
+              },
+            },
+          },
+        })(context)
       : context.next(),
   ,
 ]
