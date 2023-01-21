@@ -62,14 +62,13 @@ const config = {
       colorMode: {
         defaultMode: "dark",
         disableSwitch: true,
-        respectPrefersColorScheme: true,
+        respectPrefersColorScheme: false,
       },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
         additionalLanguages: ["markdown"],
       },
-
       navbar: {
         hideOnScroll: true,
         title: "Edgeflare",
